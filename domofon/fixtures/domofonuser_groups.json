@@ -1,0 +1,26 @@
+[
+  {
+    "model": "core.domofonuser_groups",
+    "pk": 1,
+    "fields": {
+      "domofonuser_id": 1,
+      "group_id": 1
+    }
+  },
+  {
+    "model": "core.domofonuser_groups",
+    "pk": 2,
+    "fields": {
+      "domofonuser_id": 2,
+      "group_id": 2
+    }
+  },
+  {
+    "model": "core.domofonuser_groups",
+    "pk": 3,
+    "fields": {
+      "domofonuser_id": 3,
+      "group_id": 3
+    }
+  }
+]

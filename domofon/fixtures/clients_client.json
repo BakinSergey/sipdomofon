@@ -1,0 +1,112 @@
+[
+  {
+    "uid": 1,
+    "mob_phone": "89992265659",
+    "dom_phone": 11111,
+    "level": 0,
+    "street": "A",
+    "dom": "1",
+    "podezd": "1",
+    "city": "Астана"
+  },
+  {
+    "uid": 2,
+    "mob_phone": "89992265651",
+    "dom_phone": 11111,
+    "level": 1,
+    "street": "A",
+    "dom": "1",
+    "podezd": "2",
+    "city": "Астана"
+  },
+  {
+    "uid": 3,
+    "mob_phone": "89992265623",
+    "dom_phone": 22222,
+    "level": 2,
+    "street": "A",
+    "dom": "1",
+    "podezd": "3",
+    "city": "Астана"
+  },
+  {
+    "uid": 4,
+    "mob_phone": "89956265659",
+    "dom_phone": 22223,
+    "level": 3,
+    "street": "B",
+    "dom": "1",
+    "podezd": "1",
+    "city": "Астана"
+  },
+  {
+    "uid": 5,
+    "mob_phone": "89068294360",
+    "dom_phone": 32325,
+    "level": 2,
+    "street": "C",
+    "dom": "12",
+    "podezd": "1",
+    "city": "Астана"
+  },
+  {
+    "uid": 6,
+    "mob_phone": "89068294360",
+    "dom_phone": 23563,
+    "level": 1,
+    "street": "B",
+    "dom": "1",
+    "podezd": "2",
+    "city": "Астана"
+  },
+  {
+    "uid": 7,
+    "mob_phone": "89068294360",
+    "dom_phone": 54546,
+    "level": 3,
+    "street": "A",
+    "dom": "2",
+    "podezd": "1",
+    "city": "Астана"
+  },
+  {
+    "uid": 8,
+    "mob_phone": "89992265657",
+    "dom_phone": 59521,
+    "level": 2,
+    "street": "B",
+    "dom": "1",
+    "podezd": "3",
+    "city": "Астана"
+  },
+  {
+    "uid": 9,
+    "mob_phone": "89992265656",
+    "dom_phone": 59656,
+    "level": 1,
+    "street": "C",
+    "dom": "12",
+    "podezd": "2",
+    "city": "Астана"
+  },
+  {
+    "uid": 10,
+    "mob_phone": "89992265655",
+    "dom_phone": 68426,
+    "level": 1,
+    "street": "A",
+    "dom": "2",
+    "podezd": "2",
+    "city": "Астана"
+  },
+  {
+    "uid": 11,
+    "mob_phone": "89992265654",
+    "dom_phone": 49892,
+    "level": 1,
+    "street": "A",
+    "dom": "2",
+    "podezd": "3",
+    "city": "Астана"
+  }
+]

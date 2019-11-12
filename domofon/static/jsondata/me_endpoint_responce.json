@@ -1,0 +1,49 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "api/me endpoint responce v1.0 schema",
+  "definitions": {
+    "array_or_null":{
+        "oneOf": [
+            {"type": "array"},
+            {"type":"null"}
+        ]
+    },
+    "string_or_null":{
+        "oneOf": [
+            {"type": "string"},
+            {"type":"null"}
+        ]
+    },
+    "int_or_null":{
+        "oneOf": [
+            {"type": "integer"},
+            {"type":"null"}
+        ]
+    }
+  },
+  "type": "object",
+  "properties": {
+    "sip_id": { "$ref": "#/definitions/int_or_null"},
+    "phone": {
+      "type": "string"
+    },
+    "role": {
+      "enum": ["regular", "support", "admin"]
+    },
+    "missed_calls": {"type": "integer"},
+    "door_phones": {
+      "type":  "array"
+    },
+    "settings": {
+      "type": "object",
+      "minProperties": 8,
+      "maxProperties": 8
+    }
+},
+
+"minProperties": 6,
+"additionalProperties": false
+}
+
+
+

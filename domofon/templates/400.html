@@ -1,0 +1,67 @@
+{% load staticfiles i18n %}<!DOCTYPE html>
+<html lang="ru">
+<head>
+
+        <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/skin-black.css' %}">
+        <link rel="stylesheet" href="{% static 'css/site.css' %}">
+        <link rel="stylesheet" href="{% static 'css/AdminLTE.css' %}">
+        <link rel="stylesheet" href="{% static 'font-awesome/css/font-awesome.min.css' %}">
+
+</head>
+
+<body class="skin-black layout-boxed">
+   <div class="wrapper" style="height: auto; min-height: 100%;">
+
+
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper" style="min-height: 1126px;">
+    <section class="content-header">
+
+    </section>
+
+    <section class="content">
+      <div class="error-page">
+
+
+        <div class="error-content" style="margin-left: 0px">
+            <h2 class="headline text-yellow" style="font-size: 400px"> 400</h2>
+          <h3><i class="fa fa-warning text-yellow"></i>Ошибка! Некорреткный запрос</h3>
+
+          <p>
+            Запрос некорректен.
+            В тоже время, вы можете <a href="/">вернуться на главную</a> или воспользоваться поиском.
+          </p>
+            <form class="search-form" method="get" action="/catalog/search/">
+            <div class="input-group">
+              <input type="text" name="q" class="form-control" placeholder="Поиск">
+
+              <div class="input-group-btn">
+                <button type="submit" name="submit" class="btn btn-warning btn-flat"><i class="fa fa-search"></i>
+                </button>
+              </div>
+            </div>
+            <!-- /.input-group -->
+          </form>
+
+
+        </div>
+        <!-- /.error-content -->
+      </div>
+      <!-- /.error-page -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  <footer class="main-footer">
+
+            <strong>Yestimate © 2016</strong>
+        </footer>
+
+</div>
+
+
+</body>
+</html>
+

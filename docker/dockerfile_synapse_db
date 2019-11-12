@@ -1,0 +1,9 @@
+FROM postgres:11.5-alpine
+
+COPY docker/init_sql_4_synapse_db.sql /docker-entrypoint-initdb.d/
+
+COPY docker/z_entry_synapse_db.sh /docker-entrypoint-initdb.d/
+
+COPY docker/dumps/load_synapse_db_dump.sql /tmp/
+
+EXPOSE 5433

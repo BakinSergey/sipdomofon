@@ -1,0 +1,9 @@
+FROM postgres:11.5-alpine
+
+COPY docker/init_sql_4_sip_db.sql /docker-entrypoint-initdb.d/
+COPY docker/z_entry_sip_db.sh /docker-entrypoint-initdb.d/
+
+COPY docker/dumps/load_sip_db_dump.sql /tmp/
+
+EXPOSE 5432
+

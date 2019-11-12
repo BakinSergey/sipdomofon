@@ -1,0 +1,89 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Parametric walls and partitions v1.0 schema",
+  "definitions": {
+  },
+  "type": "object",
+  "properties": {
+    "background_color": {
+      "description": "background color",
+      "enum": ["#0E4FDB","#11DFE5","#E59E11","#E51181","#18F143","#F11822"],
+      "default": null
+    },
+    "ringtone": {
+      "description": "ringtone file",
+      "type": "string",
+      "default": null
+    },
+    "video_select": {
+      "description": "show video before or after answer",
+      "enum": [
+        "ON before answer",
+        "ON after answer"
+      ],
+      "default": "ON before answer"
+    },
+    "video_resolution": {
+      "description": "video resolution",
+      "enum": [
+        "QCIF",
+        "CIF",
+        "720P"
+      ],
+      "default": "QCIF"
+    },
+    "video_bitrate": {
+      "description": "video bitrate",
+      "enum": [
+        "128kbps",
+        "256kbps",
+        "512kbps",
+        "1024kbps",
+        "2048kbps"
+      ],
+      "default": "1024kbps"
+    },
+    "video_freq": {
+      "description": "video frequency",
+      "enum": [
+        "5fps",
+        "10fps",
+        "15fps",
+        "20fps",
+        "25fps",
+        "30fps"
+      ],
+      "default": "15fps"
+    },
+    "video_codec": {
+      "description": "video codec",
+      "type": "string",
+      "default": null
+    },
+    "transport": {
+      "description": "protocol",
+      "enum": [
+        "udp",
+        "tcp"
+      ],
+      "default": "tcp"
+    }
+  },
+  "minProperties": 8,
+  "additionalProperties": false,
+  "ui_strings": {
+    "ru_ru": {
+      "background color": ["Выберите тему", "Цветовая тема"],
+      "ringtone file": ["Выберите", "Звук уведомления"],
+      "show video before or after answer": ["Показывать видео до или после ответа на звонок?", "Видео"],
+      "video resolution": ["разрешение видео","Видео, resolution"],
+      "video bitrate": ["плотность видеопотока", "Видео, bitrate"],
+      "video frequency": ["Частота кадров, в сек","Видео, freq"],
+      "video codec": ["видеокодек", "Видео, codec"],
+      "protocol": ["протокол передачи", "Видео, protocol"]
+    }
+  }
+}
+
+
+

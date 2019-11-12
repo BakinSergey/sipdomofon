@@ -1,0 +1,101 @@
+root folder - папка репозитория.
+
+Запуска бекенда:
+
+Установить и добавить в PATH интерпретатор Python 3.7.2
+=======================================================================================================
+
+A. На Localhost, не в докере(po-starinke):
+
+0. Из файла local.env.sample сделать файл .env(лежит в папке /domofon/, создать там же)
+1. Создать базы данных и юзеров к ним(Grant all privileges) согласно файлу .env
+    версии СУБД смотреть по B(докер)
+2. Создать файл /domofon/domofon/settings/local.py по образцу local.sample(лежит там)
+3. Установить matrix-synapse сервер версии 1.4.0, настроить конфиг(имя сервера брать из env файла п.0))
+   ( https://github.com/matrix-org/synapse/blob/master/INSTALL.md )
+Переменные к-е нужны в конфигурации synapse-сервера:
+    - shared_secret=random_string_length_32
+    - server_name=your.matrix.host
+    - enable_registration=true
+    - database=> ( POSTGRES 11.5 )
+
+    ( https://www.8host.com/blog/ustanovka-synapse-v-ubuntu-16-04/ )
+
+4. В "папке репозитория"(root folder):
+    pip install --upgrade pip
+    pip install --upgrade setuptools
+    pip install pipenv
+    pipenv shell
+    pipenv install
+    pipenv install --dev
+
+из папки domofon/
+
+5. Джанго:
+    python manage.py collectstatic --no-input
+    python manage.py migrate --settings=domofon.settings.local
+
+6. Запускать   командой:
+    python manage.py runserver 127.0.0.1:8000 --settings=domofon.settings.local
+
+
+=======================================================================================================
+
+B. На Localhost, в докере:
+
+Докер собирает и запускает след. сервисы:
+- back: Джанго проект
+- sip_db: PG база для back (PG 11.5)
+- redis: кеш для работы бекенда
+- synapse: MATRIX-SYNAPSE сервер v.1.4.0
+- synapse_db: его БД (PG 11.5)
+- client_db: база данных клиентов (MySQL 5.7.28)
+
+
+0. Из файла .env.sample сделать файл .env(лежит в корневой папке, создать там же)
+1. Установить докер, зарегистрироваться на dockerhub:
+    docker login
+2. Из root folder:
+        docker-compose up -d --build --no-start (~10-12min)
+        docker-compose up -d
+
+========================================================================================================
+
+успешный старт всех сервисов:
+
+(sip-domofon) pythonic@pythonic:~/PycharmProjects/sip-domofon/docker$ docker-compose ps
+   Name                 Command               State                 Ports
+---------------------------------------------------------------------------------------
+back         sh docker/z_entry_back.sh  ...   Up      0.0.0.0:8000->8000/tcp
+client_db    docker-entrypoint.sh mysqld      Up      0.0.0.0:3307->3306/tcp, 33060/tcp
+redis        docker-entrypoint.sh redis ...   Up      0.0.0.0:6380->6379/tcp
+sip_db       docker-entrypoint.sh postgres    Up      0.0.0.0:5434->5432/tcp
+synapse      synctl start --no-daemonize      Up      0.0.0.0:8008->8008/tcp
+synapse_db   docker-entrypoint.sh postgres    Up      0.0.0.0:5433->5432/tcp, 5433/tcp
+
+=========================================================================================================
+
+Версии докера:
+
+Client: Docker Engine - Community
+ Version:           19.03.4
+ API version:       1.40
+ Go version:        go1.12.10
+ Git commit:        9013bf583a
+ Built:             Fri Oct 18 15:54:09 2019
+ OS/Arch:           linux/amd64
+ Experimental:      false
+
+Server: Docker Engine - Community
+ Engine:
+  Version:          19.03.4
+  API version:      1.40 (minimum version 1.12)
+  Go version:       go1.12.10
+  Git commit:       9013bf583a
+  Built:            Fri Oct 18 15:52:40 2019
+  OS/Arch:          linux/amd64
+
+docker-compose version 1.24.1, build 4667896b
+docker-py version: 3.7.3
+CPython version: 3.6.8
+OpenSSL version: OpenSSL 1.1.0j  20 Nov 2018

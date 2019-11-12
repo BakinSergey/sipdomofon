@@ -1,0 +1,117 @@
+[
+  {
+    "model": "core.domofonuser",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$150000$3dJKqefszo8e$FRIMcP5OgrW09w4toISLuDdde3RVx0ZBUXbF/V4USQs=",
+      "is_superuser": false,
+      "username": "regular_user",
+      "first_name": "Иван",
+      "last_name": "Регулярнов",
+      "email": "regular@email.ru",
+      "is_staff": false,
+      "phone": "+7800100500",
+      "phone_confirmed": false,
+      "email_confirmed": false,
+      "avatar": "./user/logo/default.png",
+      "sex": "male",
+      "is_subscriber": false,
+      "user_info": {
+        "settings": {
+          "ringtone": null,
+          "transport": "tcp",
+          "video_freq": "15fps",
+          "video_codec": null,
+          "video_select": "ON before answer",
+          "video_bitrate": "1024kbps",
+          "background_color": null,
+          "video_resolution": "QCIF"
+        },
+        "register_ip": "127.0.0.1",
+        "from_client_db": [
+          {
+            "uid": 5,
+            "dom_phone": 55555
+          }
+        ]
+      }
+    }
+  },
+  {
+    "model": "core.domofonuser",
+    "pk": 2,
+    "fields": {
+      "password": "pbkdf2_sha256$150000$3dJKqefszo8e$FRIMcP5OgrW09w4toISLuDdde3RVx0ZBUXbF/V4USQs=",
+      "is_superuser": false,
+      "username": "support_user",
+      "first_name": "Иван",
+      "last_name": "Поддержкин",
+      "email": "support@email.ru",
+      "is_staff": false,
+      "phone": "89991165659",
+      "phone_confirmed": true,
+      "email_confirmed": false,
+      "avatar": "./user/logo/default.png",
+      "sex": "male",
+      "is_subscriber": false,
+      "user_info": {
+        "settings": {
+          "ringtone": "Ding-Don",
+          "transport": "tcp",
+          "video_freq": "25fps",
+          "video_codec": null,
+          "video_select": "ON after answer",
+          "video_bitrate": "1024kbps",
+          "background_color": null,
+          "video_resolution": "720p"
+        },
+        "register_ip": "127.0.0.1",
+        "from_client_db": [
+          {
+            "uid": 6,
+            "dom_phone": 23563
+          }
+        ]
+      }
+    }
+  },
+  {
+    "model": "core.domofonuser",
+    "pk": 3,
+    "fields": {
+      "password": "pbkdf2_sha256$150000$3dJKqefszo8e$FRIMcP5OgrW09w4toISLuDdde3RVx0ZBUXbF/V4USQs=",
+      "is_superuser": false,
+      "username": "admin",
+      "first_name": "Мария",
+      "last_name": "Админович",
+      "email": "admin@email.ru",
+      "is_staff": true,
+      "phone": "+7800800800",
+      "phone_confirmed": false,
+      "email_confirmed": false,
+      "avatar": "./user/logo/default.png",
+      "sex": "female",
+      "is_subscriber": true,
+      "user_info": {
+        "settings": {
+          "ringtone": null,
+          "transport": "udp",
+          "video_freq": "10fps",
+          "video_codec": null,
+          "video_select": "ON before answer",
+          "video_bitrate": "1024kbps",
+          "background_color": "#11DFE5",
+          "video_resolution": "QCIF"
+        },
+        "register_ip": "127.0.0.1",
+        "from_client_db": [
+          {
+            "uid": 7,
+            "dom_phone": 77553
+          }
+        ]
+      }
+    }
+  }
+]
+

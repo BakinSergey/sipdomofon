@@ -1,0 +1,84 @@
+version: '3.2'
+
+services:
+  sip_db:
+    build:
+      context: .
+      dockerfile: docker/dockerfile_sip_db
+    container_name: sip_db
+    ports:
+      - 5434:5432
+    environment:
+      PGDATA: /var/lib/postgresql/data/pgdata
+      POSTGRES_PASSWORD: 1020
+#    volumes:
+#      - ./sipdb_data:/var/lib/postgresql/data/pgdata
+    restart: always
+
+  back:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    command: sh docker/z_entry_back.sh
+    container_name: back
+    volumes:
+      - .:/usr/src/app
+    ports:
+      - 8000:8000
+    depends_on:
+      - client_db
+      - synapse_db
+      - synapse
+      - sip_db
+      - redis
+    restart: always
+
+  redis:
+    image: redis:4-alpine
+    container_name: redis
+    ports:
+      - 6380:6379
+
+
+  synapse:
+    build:
+      context: .
+      dockerfile: docker/dockerfile_synapse
+    container_name: synapse
+    command: sh z_entry_synapse.sh
+    depends_on:
+      - synapse_db
+    ports:
+      - 8008:8008
+#    restart: always
+
+
+  synapse_db:
+    build:
+      context: .
+      dockerfile: docker/dockerfile_synapse_db
+    container_name: synapse_db
+    ports:
+      - 5433:5432
+    environment:
+      PGDATA: /var/lib/postgresql/data/pgdata
+      POSTGRES_PASSWORD: 1020
+#    volumes:
+#      - ./synapsedb_data:/var/lib/postgresql/data/pgdata
+    restart: always
+
+
+  client_db:
+    build:
+      context: .
+      dockerfile: docker/dockerfile_client_db
+    container_name: client_db
+    ports:
+      - 3307:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=mysql
+      - MYSQL_DATABASE=db
+    restart: always
+
+#    volumes:
+#      - ./clients_db_data:/var/lib/mysql

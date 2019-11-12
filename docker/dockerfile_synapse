@@ -1,0 +1,30 @@
+FROM python:3.7-alpine
+
+RUN apk add postgresql-libs && \
+    apk add --virtual .build-deps gcc musl-dev zlib-dev jpeg-dev \
+            postgresql-dev python3-dev libffi-dev openssl-dev && \
+    apk add make cmake
+
+RUN mkdir -p ~/synapse && \
+    pip install --upgrade setuptools && \
+    pip install matrix-synapse==1.4.0 && \
+    pip install jinja2 && \
+    pip install psycopg2-binary==2.8.3 && \
+    cd ~/synapse
+
+WORKDIR synapse
+
+RUN python -m synapse.app.homeserver \
+    --server-name my.matrix.host \
+    --config-path homeserver.yaml \
+    --generate-config \
+    --report-stats=no
+
+COPY /docker/synapse_cfg/homeserver.yaml /synapse/
+COPY /docker/z_entry_synapse.sh /synapse/
+
+#RUN addgroup -S domofon && adduser -S sip_user -G domofon
+#USER sip_user
+
+EXPOSE 8008
+
